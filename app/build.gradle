@@ -1,11 +1,15 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
+ext {
+    PUBLISH_GROUP_ID = 'ananth10.countrypicker.android'
+    PUBLISH_ARTIFACT_ID = 'country-picker'
+    PUBLISH_VERSION = '1.0'
+}
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.ananth.countrypickersample"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -17,6 +21,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
@@ -24,3 +30,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
 }
+
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
