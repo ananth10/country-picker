@@ -1,0 +1,39 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.ananth.countrypicker.library' // CREATE A GROUP ID FOR YOUR LIBRARY
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                groupId 'com.ananth10.library' // CREATE A GROUP ID FOR YOUR LIBRARY
+                artifactId 'country-picker' // THE NAME OF YOUR MODULE
+
+                name 'country-picker' // YOUR LIBRARY NAME
+                description 'Its a library to simply select country from listview.' // YOUR LIBRARY DESCRIPTION
+                url 'https://github.com/ananth10/country-picker' // YOUR SITE
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'atom.ananthababu' //YOUR ID
+                        name 'Anantha Babu' //YOUR NAME
+                        email 'atom.ananthababu@gmail.com' //YOUR EMAIL
+                    }
+                }
+                scm {
+                    connection 'https://github.com/ananth10/country-picker.git' // YOUR GIT REPO
+                    developerConnection 'https://github.com/ananth10/country-picker.git' // YOUR GIT REPO
+                    url 'https://github.com/ananth10/country-picker' // YOUR SITE
+
+                }
+            }
+        }
+    }
+}

@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.ananth.countrypickersample"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -24,3 +23,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
 }
+
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
