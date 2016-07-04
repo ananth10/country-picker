@@ -1,6 +1,6 @@
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.ananth.countrypicker.library' // CREATE A GROUP ID FOR YOUR LIBRARY
+group = 'com.ananth10.library' // CREATE A GROUP ID FOR YOUR LIBRARY
 
 install {
     repositories.mavenInstaller {
