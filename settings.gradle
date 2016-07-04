@@ -1,1 +1,1 @@
-include ':app', ':country-picker'
+include ':app', ':country-picker', ':fastscroll'
