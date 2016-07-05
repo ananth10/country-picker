@@ -14,7 +14,7 @@ Just add the library dependency:
     
 Usage 
 
-
+```
  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ Usage
             getUserCountryInfo();
 
     }
-    
+    ```
   Sample
   
   https://github.com/ananth10/country-picker
