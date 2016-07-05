@@ -9,8 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ananth.countrypickersample.R;
-import com.ananth.countrypickersample.models.CountryItem;
+import com.ananth.countrypicker.R;
+import com.ananth.countrypicker.models.CountryItem;
 
 import java.lang.reflect.Field;
 import java.util.List;

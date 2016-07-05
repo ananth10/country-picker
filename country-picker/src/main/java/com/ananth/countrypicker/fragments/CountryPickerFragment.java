@@ -15,11 +15,11 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.ananth.countrypickersample.constants.Constants;
-import com.ananth.countrypickersample.R;
-import com.ananth.countrypickersample.adapter.CountryAdapter;
-import com.ananth.countrypickersample.interfaces.CountryPickerListener;
-import com.ananth.countrypickersample.models.CountryItem;
+import com.ananth.countrypicker.constants.Constants;
+import com.ananth.countrypicker.R;
+import com.ananth.countrypicker.adapter.CountryAdapter;
+import com.ananth.countrypicker.interfaces.CountryPickerListener;
+import com.ananth.countrypicker.models.CountryItem;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
