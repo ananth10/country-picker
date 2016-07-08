@@ -10,7 +10,7 @@ SET UP
 
 Just add the library dependency:
 
-    compile 'com.ananth10.library:country-picker:1.1'
+    compile 'com.ananth10.library:country-picker:1.3.5'
     
 Usage 
 
