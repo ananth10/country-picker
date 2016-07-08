@@ -186,15 +186,21 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (!(telephonyManager.getSimState() == TelephonyManager.SIM_STATE_ABSENT)) {
             countryIsoCode = telephonyManager.getSimCountryIso();
-            for (int i = 0; i < allCountriesList.size(); i++) {
-                CountryItem country = allCountriesList.get(i);
-                if (country.getmCode().equalsIgnoreCase(countryIsoCode)) {
-                    country.setmFlag(getFlagResId(country.getmCode()));
-                    country.setmCode(country.getmCode());
-                    country.setmName(country.getmName());
-                    country.setmDialCode(country.getmDialCode());
-                    return country;
-                }
+            matchedCountry(countryIsoCode);
+        }
+        return defaultCountry();
+    }
+
+    public CountryItem matchedCountry(String iso)
+    {
+        for (int i = 0; i < allCountriesList.size(); i++) {
+            CountryItem country = allCountriesList.get(i);
+            if (country.getmCode().equalsIgnoreCase(iso)) {
+                country.setmFlag(getFlagResId(country.getmCode()));
+                country.setmCode(country.getmCode());
+                country.setmName(country.getmName());
+                country.setmDialCode(country.getmDialCode());
+                return country;
             }
         }
         return defaultCountry();

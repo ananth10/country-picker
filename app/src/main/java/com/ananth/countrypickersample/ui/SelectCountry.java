@@ -59,4 +59,5 @@ public class SelectCountry extends AppCompatActivity {
         mCountryIsoCodeTextView.setText(country.getmCode());
         mCountryNameTextView.setText(country.getmName());
     }
+
 }
