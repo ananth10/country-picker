@@ -138,6 +138,7 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
                     CountryItem country = selectedCountriesList.get(position);
                     listener.onSelectCountry(country.getmName(), country.getmCode(), country.getmDialCode(),
                             country.getmFlag());
+                    searchEditText.setText("");
                 }
             }
         });
@@ -189,19 +190,22 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
                 CountryItem country = allCountriesList.get(i);
                 if (country.getmCode().equalsIgnoreCase(countryIsoCode)) {
                     country.setmFlag(getFlagResId(country.getmCode()));
+                    country.setmCode(country.getmCode());
+                    country.setmName(country.getmName());
+                    country.setmDialCode(country.getmDialCode());
                     return country;
                 }
             }
         }
-        return afghanistan();
+        return defaultCountry();
     }
 
-    private CountryItem afghanistan() {
+    private CountryItem defaultCountry() {
         CountryItem country = new CountryItem();
-        country.setmCode("AF");
-        country.setmName("Afghanistan");
-        country.setmDialCode("93");
-        country.setmFlag(R.drawable.flag_af);
+        country.setmCode("US");
+        country.setmName("United States");
+        country.setmDialCode("1");
+        country.setmFlag(R.drawable.flag_us);
         return country;
     }
 
