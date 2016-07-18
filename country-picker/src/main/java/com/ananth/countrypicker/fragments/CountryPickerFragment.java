@@ -11,9 +11,11 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.ananth.countrypicker.constants.Constants;
 import com.ananth.countrypicker.R;
@@ -43,6 +45,7 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
     private List<CountryItem> selectedCountriesList;
     private CountryPickerListener listener;
     private Context context;
+    private TextView mCancel;
 
     public void setListener(CountryPickerListener listener) {
         this.listener = listener;
@@ -114,6 +117,7 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_main, null);
+        mCancel=(TextView)view.findViewById(R.id.cancel);
         Bundle args = getArguments();
         if (args != null) {
             String dialogTitle = args.getString("dialogTitle");
@@ -140,6 +144,13 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
                             country.getmFlag());
                     searchEditText.setText("");
                 }
+            }
+        });
+
+        mCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
             }
         });
 
@@ -186,7 +197,13 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (!(telephonyManager.getSimState() == TelephonyManager.SIM_STATE_ABSENT)) {
             countryIsoCode = telephonyManager.getSimCountryIso();
-            matchedCountry(countryIsoCode);
+            for (int i = 0; i < allCountriesList.size(); i++) {
+                CountryItem country = allCountriesList.get(i);
+                if (country.getmCode().equalsIgnoreCase(countryIsoCode)) {
+                    country.setmFlag(getFlagResId(country.getmCode()));
+                    return country;
+                }
+            }
         }
         return defaultCountry();
     }
@@ -197,9 +214,6 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
             CountryItem country = allCountriesList.get(i);
             if (country.getmCode().equalsIgnoreCase(iso)) {
                 country.setmFlag(getFlagResId(country.getmCode()));
-                country.setmCode(country.getmCode());
-                country.setmName(country.getmName());
-                country.setmDialCode(country.getmDialCode());
                 return country;
             }
         }
