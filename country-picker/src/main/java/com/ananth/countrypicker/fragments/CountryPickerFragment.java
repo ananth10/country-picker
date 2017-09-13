@@ -11,15 +11,14 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.ananth.countrypicker.constants.Constants;
 import com.ananth.countrypicker.R;
 import com.ananth.countrypicker.adapter.CountryAdapter;
+import com.ananth.countrypicker.constants.Constants;
 import com.ananth.countrypicker.interfaces.CountryPickerListener;
 import com.ananth.countrypicker.models.CountryItem;
 
@@ -72,9 +71,9 @@ public class CountryPickerFragment extends DialogFragment implements Comparator<
             try {
                 allCountriesList = new ArrayList<>();
                 String allCountriesCode = readEncodedJsonString();
-                System.out.println("country decoded :"+allCountriesCode);
+//                System.out.println("country decoded :"+allCountriesCode);
                 JSONArray countryArray = new JSONArray(allCountriesCode);
-                System.out.println("country decoded 11:"+countryArray);
+//                System.out.println("country decoded 11:"+countryArray);
                 for (int i = 0; i < countryArray.length(); i++) {
                     JSONObject jsonObject = countryArray.getJSONObject(i);
                     String countryName = jsonObject.getString("name");
